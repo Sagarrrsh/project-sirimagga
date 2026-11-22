@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #F5EFE4;
+    --bg-cream-card: #FAF6EE;
+    --brand-maroon: #651D2D;
+    --brand-maroon-hover: #4F1522;
+    --brand-gold: #B18A4A;
+    --brand-brown: #332821;
+    --brand-muted: #6A5A4E;
+    --font-serif: 'Playfair Display', 'Noto Sans Devanagari', 'Noto Sans Kannada', Georgia, Cambria, serif;
+    --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', 'Noto Sans Kannada', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-ivory);
+    color: var(--brand-brown);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: var(--font-serif);
+  }
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle traditional Karnataka woven border motif */
+.heritage-border-strip {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #651D2D 0px,
+    #651D2D 8px,
+    #B18A4A 8px,
+    #B18A4A 12px,
+    #F5EFE4 12px,
+    #F5EFE4 16px,
+    #B18A4A 16px,
+    #B18A4A 20px
+  );
+}
+
+/* Archival Ilkal double-hairline frame for old-meets-modern editorial cards */
+.archival-card-frame {
+  box-shadow: inset 0 0 0 1px rgba(177, 138, 74, 0.35), inset 0 0 0 6px #FAF6EE, inset 0 0 0 7px rgba(101, 29, 45, 0.14);
+}
+
+.linen-editorial-surface {
+  background-color: #FAF6EE;
+  background-image: radial-gradient(rgba(177, 138, 74, 0.08) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+@keyframes sirimagga-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: sirimagga-marquee 42s linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .animate-marquee-slow,
+.marquee-container:focus-within .animate-marquee-slow {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
